@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import Firebase
 
 class ViewController: UIViewController {
     
@@ -15,11 +16,12 @@ class ViewController: UIViewController {
         
         view.backgroundColor = UIColor(r: 61, g: 91, b: 151)
         
-        
         //add subview
         view.addSubview(inputContainerView)
         view.addSubview(firstButton)
         inputContainerView.addSubview(nameTextField)
+        inputContainerView.addSubview(emailTextField)
+        inputContainerView.addSubview(passwordTextField)
         
         
         //constraints
@@ -42,8 +44,36 @@ class ViewController: UIViewController {
         nameTextField.heightAnchor.constraint(equalTo: inputContainerView.heightAnchor, multiplier: 1/3).isActive = true
         
         
+        emailTextField.topAnchor.constraint(equalTo: nameTextField.bottomAnchor).isActive = true
+        emailTextField.widthAnchor.constraint(equalTo: inputContainerView.widthAnchor).isActive = true
+        emailTextField.heightAnchor.constraint(equalTo: inputContainerView.heightAnchor, multiplier: 1/3).isActive = true
+        
+        
+        passwordTextField.topAnchor.constraint(equalTo: emailTextField.bottomAnchor).isActive = true
+        passwordTextField.widthAnchor.constraint(equalTo: inputContainerView.widthAnchor).isActive = true
+        passwordTextField.heightAnchor.constraint(equalTo: inputContainerView.heightAnchor, multiplier: 1/3).isActive = true
+        
+        
         // Do any additional setup after loading the view, typically from a nib.
     }
+    
+    
+    let emailTextField : UITextField = {
+        let tf = UITextField()
+        tf.translatesAutoresizingMaskIntoConstraints = false
+        tf.placeholder = "Email"
+        tf.backgroundColor = .white
+        return tf
+    }()
+    
+    let passwordTextField : UITextField = {
+        let tf = UITextField()
+        tf.translatesAutoresizingMaskIntoConstraints = false
+        tf.placeholder = "Password"
+        tf.backgroundColor = .white
+        tf.isSecureTextEntry = true
+        return tf
+    }()
     
     let nameTextField : UITextField = {
         let tf = UITextField()
@@ -62,14 +92,45 @@ class ViewController: UIViewController {
         return view
     }()
     
-    let firstButton : UIButton = {
+    lazy var firstButton : UIButton = {
        let ub = UIButton()
         ub.backgroundColor = UIColor(red: 80/255, green: 101/255, blue: 161/255, alpha: 1)
         ub.setTitle("Register", for: .normal)
         ub.translatesAutoresizingMaskIntoConstraints = false
+        ub.addTarget(self, action: #selector(handleButton), for: .touchUpInside)
         return ub
     }()
 
+    @objc func handleButton(){
+        guard let email = emailTextField.text, let password = passwordTextField.text, let name = nameTextField.text else {
+            print("Not valid")
+            return
+        }
+        Auth.auth().createUser(withEmail: email, password: password) { (user:User?, error) in
+            if error != nil {
+                print(error)
+                return
+            }
+            
+            guard let uid = user?.uid else {
+                return
+            }
+            
+            //sucessfully
+            var ref = Database.database().reference(fromURL: "https://pinterest-7574e.firebaseio.com/")
+            let values = ["name" :name, "email": email]
+            let usersRef = ref.child("users").child(uid)
+            usersRef.updateChildValues(values, withCompletionBlock: { (error, databaseRef:DatabaseReference?) in
+                if  error != nil {
+                    print(error)
+                }
+            })
+            
+            // successfully included
+            print("Saved user successfully into our database")
+            
+        }
+    }
 
 }
 
