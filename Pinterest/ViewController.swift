@@ -93,6 +93,9 @@ class ViewController: UIViewController {
     }()
     
     lazy var firstButton : UIButton = {
+        let imageView = UIImageView()
+        imageView.image = UIImage(named: "profileImageView")
+        
        let ub = UIButton()
         ub.backgroundColor = UIColor(red: 80/255, green: 101/255, blue: 161/255, alpha: 1)
         ub.setTitle("Register", for: .normal)
