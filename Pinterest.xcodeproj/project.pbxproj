@@ -13,7 +13,11 @@
 		84376CB52203D11B0052ECD2 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 84376CB32203D11B0052ECD2 /* Main.storyboard */; };
 		84376CB72203D11D0052ECD2 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 84376CB62203D11D0052ECD2 /* Assets.xcassets */; };
 		84376CBA2203D11D0052ECD2 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 84376CB82203D11D0052ECD2 /* LaunchScreen.storyboard */; };
+		84396E87224D679300463FFF /* PinViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84396E86224D679300463FFF /* PinViewController.swift */; };
+		84396E89224D68B400463FFF /* Pin.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84396E88224D68B400463FFF /* Pin.swift */; };
+		84396E8B224D694B00463FFF /* PinCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84396E8A224D694B00463FFF /* PinCell.swift */; };
 		849E6032220CE9BD0055CF40 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 849E6031220CE9BD0055CF40 /* GoogleService-Info.plist */; };
+		84D7F2A92228929B00BA35DD /* EmailLoginController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84D7F2A82228929B00BA35DD /* EmailLoginController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -27,7 +31,11 @@
 		84376CB62203D11D0052ECD2 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		84376CB92203D11D0052ECD2 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		84376CBB2203D11D0052ECD2 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		84396E86224D679300463FFF /* PinViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PinViewController.swift; sourceTree = "<group>"; };
+		84396E88224D68B400463FFF /* Pin.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Pin.swift; sourceTree = "<group>"; };
+		84396E8A224D694B00463FFF /* PinCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PinCell.swift; sourceTree = "<group>"; };
 		849E6031220CE9BD0055CF40 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		84D7F2A82228929B00BA35DD /* EmailLoginController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmailLoginController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -64,12 +72,16 @@
 			isa = PBXGroup;
 			children = (
 				84376CAF2203D11B0052ECD2 /* AppDelegate.swift */,
+				849E6031220CE9BD0055CF40 /* GoogleService-Info.plist */,
 				84376CB12203D11B0052ECD2 /* ViewController.swift */,
 				84376CB32203D11B0052ECD2 /* Main.storyboard */,
 				84376CB62203D11D0052ECD2 /* Assets.xcassets */,
 				84376CB82203D11D0052ECD2 /* LaunchScreen.storyboard */,
 				84376CBB2203D11D0052ECD2 /* Info.plist */,
-				849E6031220CE9BD0055CF40 /* GoogleService-Info.plist */,
+				84D7F2A82228929B00BA35DD /* EmailLoginController.swift */,
+				84396E86224D679300463FFF /* PinViewController.swift */,
+				84396E88224D68B400463FFF /* Pin.swift */,
+				84396E8A224D694B00463FFF /* PinCell.swift */,
 			);
 			path = Pinterest;
 			sourceTree = "<group>";
@@ -218,7 +230,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				84396E89224D68B400463FFF /* Pin.swift in Sources */,
+				84396E87224D679300463FFF /* PinViewController.swift in Sources */,
 				84376CB22203D11B0052ECD2 /* ViewController.swift in Sources */,
+				84396E8B224D694B00463FFF /* PinCell.swift in Sources */,
+				84D7F2A92228929B00BA35DD /* EmailLoginController.swift in Sources */,
 				84376CB02203D11B0052ECD2 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
