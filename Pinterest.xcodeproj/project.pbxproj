@@ -16,8 +16,13 @@
 		84396E87224D679300463FFF /* PinViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84396E86224D679300463FFF /* PinViewController.swift */; };
 		84396E89224D68B400463FFF /* Pin.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84396E88224D68B400463FFF /* Pin.swift */; };
 		84396E8B224D694B00463FFF /* PinCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84396E8A224D694B00463FFF /* PinCell.swift */; };
+		8460B5B4224FE39F008A7AA6 /* PinterestLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8460B5B3224FE39F008A7AA6 /* PinterestLayout.swift */; };
+		848590822256CF0B00091F4E /* PinDetailsController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 848590812256CF0B00091F4E /* PinDetailsController.swift */; };
+		848590842256D76300091F4E /* TableViewSample.swift in Sources */ = {isa = PBXBuildFile; fileRef = 848590832256D76300091F4E /* TableViewSample.swift */; };
 		849E6032220CE9BD0055CF40 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 849E6031220CE9BD0055CF40 /* GoogleService-Info.plist */; };
 		84D7F2A92228929B00BA35DD /* EmailLoginController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84D7F2A82228929B00BA35DD /* EmailLoginController.swift */; };
+		84EF14D022600C7A00FCEF69 /* CollectionViewSampleController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84EF14CF22600C7A00FCEF69 /* CollectionViewSampleController.swift */; };
+		84EF14D3226016AC00FCEF69 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84EF14D2226016AC00FCEF69 /* Extensions.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -34,8 +39,13 @@
 		84396E86224D679300463FFF /* PinViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PinViewController.swift; sourceTree = "<group>"; };
 		84396E88224D68B400463FFF /* Pin.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Pin.swift; sourceTree = "<group>"; };
 		84396E8A224D694B00463FFF /* PinCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PinCell.swift; sourceTree = "<group>"; };
+		8460B5B3224FE39F008A7AA6 /* PinterestLayout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PinterestLayout.swift; sourceTree = "<group>"; };
+		848590812256CF0B00091F4E /* PinDetailsController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PinDetailsController.swift; sourceTree = "<group>"; };
+		848590832256D76300091F4E /* TableViewSample.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableViewSample.swift; sourceTree = "<group>"; };
 		849E6031220CE9BD0055CF40 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		84D7F2A82228929B00BA35DD /* EmailLoginController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmailLoginController.swift; sourceTree = "<group>"; };
+		84EF14CF22600C7A00FCEF69 /* CollectionViewSampleController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionViewSampleController.swift; sourceTree = "<group>"; };
+		84EF14D2226016AC00FCEF69 /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -71,6 +81,8 @@
 		84376CAE2203D11B0052ECD2 /* Pinterest */ = {
 			isa = PBXGroup;
 			children = (
+				84EF14D12260169600FCEF69 /* extensiones */,
+				84396E8E224F07CE00463FFF /* Layouts */,
 				84376CAF2203D11B0052ECD2 /* AppDelegate.swift */,
 				849E6031220CE9BD0055CF40 /* GoogleService-Info.plist */,
 				84376CB12203D11B0052ECD2 /* ViewController.swift */,
@@ -82,8 +94,27 @@
 				84396E86224D679300463FFF /* PinViewController.swift */,
 				84396E88224D68B400463FFF /* Pin.swift */,
 				84396E8A224D694B00463FFF /* PinCell.swift */,
+				848590812256CF0B00091F4E /* PinDetailsController.swift */,
+				848590832256D76300091F4E /* TableViewSample.swift */,
+				84EF14CF22600C7A00FCEF69 /* CollectionViewSampleController.swift */,
 			);
 			path = Pinterest;
+			sourceTree = "<group>";
+		};
+		84396E8E224F07CE00463FFF /* Layouts */ = {
+			isa = PBXGroup;
+			children = (
+				8460B5B3224FE39F008A7AA6 /* PinterestLayout.swift */,
+			);
+			path = Layouts;
+			sourceTree = "<group>";
+		};
+		84EF14D12260169600FCEF69 /* extensiones */ = {
+			isa = PBXGroup;
+			children = (
+				84EF14D2226016AC00FCEF69 /* Extensions.swift */,
+			);
+			path = extensiones;
 			sourceTree = "<group>";
 		};
 		FAB566E231136DA4F07B05E7 /* Frameworks */ = {
@@ -230,11 +261,16 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				84EF14D022600C7A00FCEF69 /* CollectionViewSampleController.swift in Sources */,
+				848590842256D76300091F4E /* TableViewSample.swift in Sources */,
 				84396E89224D68B400463FFF /* Pin.swift in Sources */,
 				84396E87224D679300463FFF /* PinViewController.swift in Sources */,
 				84376CB22203D11B0052ECD2 /* ViewController.swift in Sources */,
+				8460B5B4224FE39F008A7AA6 /* PinterestLayout.swift in Sources */,
 				84396E8B224D694B00463FFF /* PinCell.swift in Sources */,
 				84D7F2A92228929B00BA35DD /* EmailLoginController.swift in Sources */,
+				848590822256CF0B00091F4E /* PinDetailsController.swift in Sources */,
+				84EF14D3226016AC00FCEF69 /* Extensions.swift in Sources */,
 				84376CB02203D11B0052ECD2 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

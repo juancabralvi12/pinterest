@@ -12,13 +12,11 @@ import UIKit
 struct Pin {
     
     var caption: String
-    var comment: String
     var image: UIImage
     
     
-    init(caption: String, comment: String, image: UIImage) {
+    init(caption: String, image: UIImage) {
         self.caption = caption
-        self.comment = comment
         self.image = image
     }
     
@@ -27,21 +25,16 @@ struct Pin {
             let image = UIImage(named: photo) else {
                 return nil
         }
-        self.init(caption: caption, comment: comment, image: image)
+        self.init(caption: caption, image: image)
     }
     
     static func allPins() -> [Pin] {
-        var photos = [Pin]()
-        guard let URL = Bundle.main.url(forResource: "Photos", withExtension: "plist"),
-            let photosFromPlist = NSArray(contentsOf: URL) as? [[String:String]] else {
-                return photos
-        }
-        for dictionary in photosFromPlist {
-            if let photo = Pin(dictionary: dictionary) {
-                photos.append(photo)
-            }
-        }
-        return photos
+        var pins = [Pin(caption: "I look a lot like him", image: UIImage(named: "chandler")!),
+                    Pin(caption: "Como alimentar a un caniche", image: UIImage(named: "dog")!),
+                    Pin(caption: "A great pool", image: UIImage(named: "pool")!),
+                    Pin(caption: "", image: UIImage(named: "songs")!)
+                    ]
+        return pins
     }
     
 }

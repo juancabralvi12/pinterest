@@ -69,7 +69,6 @@ class EmailLoginController:  UIViewController {
     
     @objc func dismissController(){
         self.navigationController?.popViewController(animated: true)
-        //self.navigationController?.popToRootViewController(animated: true)
     }
     
     
@@ -142,7 +141,8 @@ class EmailLoginController:  UIViewController {
             email.loginType = .age
             self.navigationController?.pushViewController(email, animated: true)
         case .age:
-            
+            var pinView = PinViewController(collectionViewLayout: PinterestLayout())
+            self.navigationController?.pushViewController(pinView, animated: true)
             print("We have an user to be register")
         }
         }

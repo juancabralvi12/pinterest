@@ -8,48 +8,21 @@
 
 import UIKit
 
-/*class PinCell: UICollectionViewCell {
-    
-    @IBOutlet fileprivate weak var containerView: UIView!
-    @IBOutlet fileprivate weak var imageView: UIImageView!
-    @IBOutlet fileprivate weak var captionLabel: UILabel!
-    @IBOutlet fileprivate weak var commentLabel: UILabel!
-    
-    override func awakeFromNib() {
-        super.awakeFromNib()
-        containerView.layer.cornerRadius = 6
-        containerView.layer.masksToBounds = true
-    }
-    
-    var pin: Pin? {
-        didSet {
-            if let pin = pin {
-                imageView.image = pin.image
-                captionLabel.text = pin.caption
-                commentLabel.text = pin.comment
-            }
-        }
-    }
-    
-}*/
-
-
 class PinCell: UICollectionViewCell {
     
     var pin: Pin? {
         didSet {
             if let pin = pin {
                 imageView.image = pin.image
-                //captionLabel.text = pin.caption
-                //commentLabel.text = pin.comment
+                captionLabel.text = pin.caption
             }
         }
     }
     
     override init(frame: CGRect) {
         super.init(frame: frame)
-        
         setupViews()
+        backgroundColor = .white
     }
     
     required init?(coder aDecoder: NSCoder) {
@@ -60,41 +33,70 @@ class PinCell: UICollectionViewCell {
     
     let imageView: UIImageView = {
         let imageView = UIImageView()
-        imageView.image = UIImage(named: "zuckprofile")
-        imageView.contentMode = .scaleAspectFit
+        imageView.image = UIImage(named: "default")
+        imageView.contentMode = .scaleToFill
         imageView.translatesAutoresizingMaskIntoConstraints = false
+        imageView.backgroundColor = .black
+        imageView.layer.cornerRadius = 5
+        imageView.layer.masksToBounds = true
+        imageView.isUserInteractionEnabled = true
+        
         return imageView
     }()
     
     let captionLabel: UILabel = {
-        let textLabel = UILabel()
-        textLabel.text = "Meanwhile, Beast turned to the dark side."
-        textLabel.font = UIFont.systemFont(ofSize: 14)
-        return textLabel
+        let label = UILabel()
+        label.text = "Meanwhile, Beast turned to the dark side."
+        label.font = UIFont.systemFont(ofSize: 14)
+        label.numberOfLines = 2
+        label.preferredMaxLayoutWidth = 700
+        label.lineBreakMode = NSLineBreakMode.byWordWrapping
+        label.sizeToFit()
+        label.translatesAutoresizingMaskIntoConstraints = false
+        return label
     }()
     
-    let commentLabel: UILabel = {
-        let textLabel = UILabel()
-        textLabel.text = "Meanwhile, Beast turned to the dark side."
-        textLabel.font = UIFont.systemFont(ofSize: 14)
-        return textLabel
+    let moreButton : UIButton = {
+        let button = UIButton(type: .custom)
+        button.translatesAutoresizingMaskIntoConstraints = false
+        if let image = UIImage(named: "more.png") {
+            button.setImage(image, for: .normal)
+        }
+        return button
     }()
     
-
-   
+    var pinViewController : PinViewController?
+    
+    @objc func animate (){
+        pinViewController?.animateImageView(statusImageView: imageView)
+    }
+    
+    
     
     func setupViews() {
-        backgroundColor = UIColor.white
         addSubview(imageView)
+        addSubview(captionLabel)
+        addSubview(moreButton)
         
         
-        //addSubview(captionLabel)
-        //addSubview(commentLabel)
         
-        imageView.centerYAnchor.constraint(equalTo: self.centerYAnchor).isActive = true
-        imageView.centerXAnchor.constraint(equalTo: self.centerXAnchor).isActive = true
-        imageView.heightAnchor.constraint(equalToConstant: 50).isActive = true
-        imageView.widthAnchor.constraint(equalToConstant: 50).isActive = true
+        imageView.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(animate)))
+
+        
+        imageView.topAnchor.constraint(equalTo: self.topAnchor).isActive = true
+        imageView.leftAnchor.constraint(equalTo: self.leftAnchor).isActive = true
+        imageView.heightAnchor.constraint(equalTo: self.heightAnchor, multiplier: 9/10).isActive = true
+        imageView.widthAnchor.constraint(equalTo: self.widthAnchor).isActive = true
+        
+        captionLabel.topAnchor.constraint(equalTo: imageView.bottomAnchor, constant: -5).isActive = true
+        captionLabel.widthAnchor.constraint(equalTo: imageView.widthAnchor, multiplier: 4/5).isActive = true
+        captionLabel.heightAnchor.constraint(equalToConstant: 25).isActive = true
+        captionLabel.leftAnchor.constraint(equalTo: self.leftAnchor).isActive = true
+        
+        moreButton.topAnchor.constraint(equalTo: imageView.bottomAnchor, constant: -5).isActive = true
+        moreButton.widthAnchor.constraint(equalTo: self.widthAnchor, multiplier: 1/7).isActive = true
+        moreButton.heightAnchor.constraint(equalToConstant: 25).isActive = true
+        moreButton.rightAnchor.constraint(equalTo: self.rightAnchor).isActive = true
     }
     
 }

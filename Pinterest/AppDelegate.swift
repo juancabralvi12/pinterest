@@ -20,15 +20,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         FirebaseApp.configure()
         
-        /*window = UIWindow(frame: UIScreen.main.bounds)
-        window?.makeKeyAndVisible()
-        window?.rootViewController = UINavigationController(rootViewController: ViewController())*/
-        
-        
-        
         window = UIWindow(frame: UIScreen.main.bounds)
         window?.makeKeyAndVisible()
-        window?.rootViewController = UINavigationController(rootViewController: PinViewController(collectionViewLayout: UICollectionViewFlowLayout()))
+        window?.rootViewController = UINavigationController(rootViewController: PinViewController(collectionViewLayout: PinterestLayout()))
+        /*window?.rootViewController = UINavigationController(rootViewController: PinViewController(collectionViewLayout: PinterestLayout()))*/
         
         return true
     }
